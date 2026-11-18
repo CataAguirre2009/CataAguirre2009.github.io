@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio de Cata. Trabajos, proyectos y prácticas de programación y tecnología.">
+<title>Cata | Portfolio</title>
+
+<style>
+:root {
+    --bg: #090b10;
+    --surface: #121722;
+    --border: #252e3d;
+    --green: #a5f36b;
+    --text: #f4f6fa;
+    --muted: #a0a9b9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    min-height: 75px;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #0e121b;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    color: var(--green);
+    font-size: 23px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.hero {
+    min-height: 520px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+h1 span {
+    color: var(--green);
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 570px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 22px;
+    background: var(--green);
+    color: #10150b;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background: #c3ff99;
+}
+
+.profile {
+    padding: 30px;
+    min-width: 250px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.profile h2 {
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.profile p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+section {
+    padding: 70px 8%;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: 34px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.search {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: var(--green);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-height: 270px;
+    padding: 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: .25s;
+    overflow-wrap: anywhere;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green);
+}
+
+.icon {
+    font-size: 29px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: var(--green);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.language {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--green);
+    background: #1a2430;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.card a {
+    margin-top: auto;
+}
+
+.loading {
+    color: var(--muted);
+    padding: 20px 0;
+}
+
+.about {
+    background: #10151f;
+    border-top: 1px solid var(--border);
+}
+
+.about p {
+    max-width: 750px;
+    color: var(--muted);
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+}
+
+footer a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 18px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    .hero {
+        padding: 65px 6%;
+    }
+
+    section {
+        padding: 50px 6%;
+    }
+
+    .profile {
+        width: 100%;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">cata.</div>
+
+    <nav>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="https://github.com/CataAguirre2009"
+           target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">PORTFOLIO 2026</div>
+
+        <h1>Hola, soy<br><span>Cata.</span></h1>
+
+        <p class="hero-description">
+            Bienvenido a mi portfolio personal.
+            Acá encontrarás mis trabajos, proyectos y prácticas
+            relacionados con la programación, el desarrollo web
+            y la tecnología. Cada proyecto representa algo nuevo
+            que aprendí y desarrollé.
+        </p>
+
+        <a href="#proyectos" class="button">
+            Explorar proyectos ↓
+        </a>
+    </div>
+
+    <div class="profile">
+        <h2>CataAguirre2009</h2>
+        <p>Estudiante · Desarrolladora en formación</p>
+        <br>
+        <p id="repoCount">Cargando trabajos...</p>
+        <p>Programación · Web · Tecnología</p>
+        <br>
+        <a href="https://github.com/CataAguirre2009"
+           target="_blank" rel="noopener" class="button">
+            Mi GitHub ↗
+        </a>
+    </div>
+</section>
+
+<section id="proyectos">
+
+    <div class="section-heading">
+        <h2>Mis trabajos.</h2>
+        <p>Todos mis proyectos, ejercicios y experiencias.</p>
+    </div>
+
+    <input
+        type="search"
+        id="search"
+        class="search"
+        placeholder="Buscar un trabajo o lenguaje..."
+        aria-label="Buscar proyectos"
+    >
+
+    <div class="projects" id="projectList">
+        <p class="loading">Cargando proyectos de GitHub...</p>
+    </div>
+
+</section>
+
+<section class="about" id="sobre-mi">
+    <div class="section-heading">
+        <h2>Sobre mí.</h2>
+        <p>Aprender, crear y mejorar.</p>
+    </div>
+
+    <p>
+        Me gusta experimentar con nuevas ideas y transformarlas
+        en proyectos. Este espacio reúne mis trabajos de programación,
+        desarrollo web y tecnología.
+        Mi objetivo es continuar aprendiendo, descubrir nuevas
+        herramientas y desarrollar nuevas habilidades,
+        creando proyectos y mejorando cada día.
+    </p>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Cata · Portfolio personal</p>
+    <p>
+        <a href="https://github.com/CataAguirre2009"
+           target="_blank" rel="noopener">
+            github.com/CataAguirre2009
+        </a>
+    </p>
+</footer>
+
+<script>
+const username = "CataAguirre2009";
+
+const projectList = document.getElementById("projectList");
+const repoCount = document.getElementById("repoCount");
+const search = document.getElementById("search");
+
+let repositories = [];
+
+const icons = {
+    HTML: "🌐",
+    CSS: "🎨",
+    JavaScript: "⚡",
+    Python: "🐍",
+    PHP: "💻",
+    Java: "☕",
+    C: "🔧",
+    default: "📁"
+};
+
+function getIcon(language) {
+    return icons[language] || icons.default;
+}
+
+// Descripciones personalizadas
+function getDescription(repo) {
+    if (repo.description && repo.description.trim() !== "") {
+        return repo.description;
+    }
+
+    const name = repo.name.toLowerCase();
+
+    const descriptions = {
+        "html": "Prácticas y trabajos realizados con HTML para crear y estructurar páginas web.",
+        "bootstrap": "Proyecto de desarrollo web utilizando Bootstrap y sus herramientas de diseño.",
+        "mrakdown": "Trabajo y prácticas de programación con diferentes conceptos y ejercicios.",
+        "repaso": "Actividades de repaso para reforzar conocimientos y practicar conceptos aprendidos.",
+        "concepto.md": "Documento con apuntes, conceptos y contenido de estudio.",
+        "trabajo": "Trabajo práctico realizado durante el aprendizaje y la práctica de programación."
+    };
+
+    return descriptions[name] ||
+        `Proyecto de ${repo.language || "programación"} donde se desarrollan prácticas, trabajos y conocimientos tecnológicos.`;
+}
+
+// Crear tarjetas
+function renderProjects(list) {
+    projectList.innerHTML = "";
+
+    if (list.length === 0) {
+        projectList.innerHTML =
+            '<p class="loading">No se encontraron trabajos.</p>';
+        return;
+    }
+
+    list.forEach(repo => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const icon = document.createElement("div");
+        icon.className = "icon";
+        icon.textContent = getIcon(repo.language);
+
+        const title = document.createElement("h3");
+        title.textContent = repo.name;
+
+        const description = document.createElement("p");
+        description.textContent = getDescription(repo);
+
+        card.appendChild(icon);
+        card.appendChild(title);
+        card.appendChild(description);
+
+        if (repo.language) {
+            const language = document.createElement("span");
+            language.className = "language";
+            language.textContent = repo.language;
+            card.appendChild(language);
+        }
+
+        const link = document.createElement("a");
+        link.href = repo.html_url;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.className = "button";
+        link.textContent = "Ver repositorio ↗";
+
+        card.appendChild(link);
+        projectList.appendChild(card);
+    });
+}
+
+// Cargar todos los repositorios públicos
+async function loadRepositories() {
+    try {
+        const response = await fetch(
+            `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`
+        );
+
+        if (!response.ok) {
+            throw new Error("No se pudieron cargar los repositorios.");
+        }
+
+        repositories = await response.json();
+
+        repoCount.textContent =
+            `${repositories.length} trabajos publicados`;
+
+        renderProjects(repositories);
+
+    } catch (error) {
+        repoCount.textContent = "Mis trabajos en GitHub";
+
+        projectList.innerHTML =
+            '<p class="loading">No se pudieron cargar los trabajos. Revisá tu conexión e intentá nuevamente.</p>';
+
+        console.error(error);
+    }
+}
+
+// Buscador
+search.addEventListener("input", function() {
+    const value = search.value.toLowerCase().trim();
+
+    const filtered = repositories.filter(repo => {
+        const text = [
+            repo.name,
+            repo.description || "",
+            repo.language || ""
+        ].join(" ").toLowerCase();
+
+        return text.includes(value);
+    });
+
+    renderProjects(filtered);
+});
+
+loadRepositories();
+</script>
+
+</body>
+</html>
